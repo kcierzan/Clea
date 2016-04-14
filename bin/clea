@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'clea'
+
+sender = Clea::Sender.new
+
+sender.send_message

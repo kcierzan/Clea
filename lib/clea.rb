@@ -1,7 +1,7 @@
-require "gemma/version"
+require "clea/version"
 require "net/smtp"
 
-module Gemma
+module Clea
   class Sender
     def send_message
       puts "Enter your GMail username:"

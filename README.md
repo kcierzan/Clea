@@ -1,13 +1,13 @@
-# Gemma
+# Clea
 
-Gemma (short for "Gem Mail") is a simple command line application for sending emails from the console using your gmail account and Ruby's SMTP library. Gemma is perfect for getting a quick message out without fumbling with clunky mail clients or web apps.
+Clea (short for "Gem Mail") is a simple command line application for sending emails from the console using your gmail account and Ruby's SMTP library. Clea is perfect for getting a quick message out without fumbling with clunky mail clients or web apps.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gemma'
+gem 'clea'
 ```
 
 And then execute:
@@ -16,11 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gemma
+    $ gem install clea
 
 ## Usage
 
-Ensure the gemma executable is in your path and enter 'gemma' in the console. Follow the prompts to send your email message. Gemma currently works only with gmail accounts.
+Ensure the clea executable is in your path and enter 'clea' in the console. Follow the prompts to send your email message. Gemma currently works only with gmail accounts.
 
 ## Development
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kcierzan/gemma.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kcierzan/clea.
 
 
 ## License
