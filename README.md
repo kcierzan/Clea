@@ -1,8 +1,6 @@
 # Gemma
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gemma`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Gemma (short for "Gem Mail") is a simple command line application for sending emails from the console using your gmail account and Ruby's SMTP library. Gemma is perfect for getting a quick message out without fumbling with clunky mail clients or web apps.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Ensure the gemma executable is in your path and enter 'gemma' in the console. Follow the prompts to send your email message. Gemma currently works only with gmail accounts.
 
 ## Development
 
@@ -32,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/gemma.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kcierzan/gemma.
 
 
 ## License
