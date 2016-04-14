@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "gemma"
   spec.version       = Gemma::VERSION
   spec.authors       = ["Kyle Cierzan", "Jeff Schneider", "David Valencia"]
-  spec.email         = ["kcierzan@gmail.com"]
+  spec.email         = ["kcierzan+gemma@gmail.com"]
 
   spec.summary       = %q{Send an email from the CLI using Ruby's SMTP library.}
   spec.description   = %q{For when alt-tabbing away from the terminal is just too much to ask...}
