@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Send an email from the CLI using Ruby's SMTP library.}
   spec.description   = %q{For when alt-tabbing away from the terminal is just too much to ask...}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/kcierzan/Gemma"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
