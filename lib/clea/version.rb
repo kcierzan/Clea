@@ -1,3 +1,3 @@
-module Gemma
+module Clea
   VERSION = "0.1.0"
 end

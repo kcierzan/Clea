@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'gemma'
-
-sender = Gemma::Sender.new
-
-sender.send_message
