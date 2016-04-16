@@ -1,6 +1,6 @@
 # Clea
 
-Clea (short for "Gem Mail") is a simple command line application for sending emails from the console using your gmail account and Ruby's SMTP library. Clea is perfect for getting a quick message out without fumbling with clunky mail clients or web apps.
+Clea (Command Line Email Application) is a simple command line application for sending emails from the console using your gmail account and Ruby's SMTP library. Clea is perfect for getting a quick message out without fumbling with clunky mail clients or web apps.
 
 ## Installation
 
