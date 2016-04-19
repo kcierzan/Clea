@@ -5,14 +5,13 @@ require "ValidateEmail"
 
 module Clea
   class Sender
-
     # Retrieve valid info from the persistent hash or from user input
-    def write_sender_info
+    def set_sender_info
       # Initialize or open persistent user info hash
       @sender_info = PStore.new("my-clea-info.pstore")
 
       # If there is no persisting value for from_address, get values for alias, from_address, and password
-      senders_from = @sender_info.transaction { sender_info[:from_address] }
+      senders_from = @sender_info.transaction { @sender_info[:from_address] }
 
       if senders_from == nil
         # Get user's alias and confirm
@@ -73,15 +72,13 @@ module Clea
         # Write input password, from_address, and from_alias to persistent hash
         sender_info.transaction do
           sender_info[:password] = password
-          # Abort user info storage if the entered from_address is invalid
-          # sender_info.abort unless ValidateEmail.validate(from_address, true) == true
           sender_info[:from_address] = from_address
           sender_info[:from_alias] = from_alias
         end
       end
     end
 
-    def get_msg_info
+    def set_msg_info
       puts "Enter the recipient's email address:"
       while @to_address = gets.chomp
         catch :badto do
@@ -110,11 +107,12 @@ module Clea
     # Interpolate user info into message string
     def compose
       # Read from persistent sender_info hash and assign variables
-
+      from_alias = @sender_info.transaction { @sender_info[:from_alias] }
+      from_address = @sender_info.transaction { @sender_info[:from_address] }
 
       # Compose message
       @msg = <<-END_OF_MESSAGE
-      From: #{sender_info[:from_alias]} <#{sender_info[:from_address]}>
+      From: #{from_alias} <#{from_address}>
       To: <#{@to_address}>
       Subject: #{@subject_line}
 

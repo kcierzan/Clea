@@ -4,4 +4,6 @@ require 'clea'
 
 sender = Clea::Sender.new
 
+sender.set_sender_info
+sender.compose
 sender.send_message
