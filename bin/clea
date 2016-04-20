@@ -4,4 +4,19 @@ require 'clea'
 
 sender = Clea::Sender.new
 
+if sender.check_sender_info == nil
+  sender.get_sender_alias
+  sender.get_sender_gmail
+  sender.get_sender_password
+  sender.write_sender_data
+end
+
+sender.get_recipient_data
+sender.get_message
+sender.compose
 sender.send_message
+
+30.times { print "*" }
+puts "\n\n Message successfully sent! \n\n"
+30.times { print "*" }
+print "\n"
