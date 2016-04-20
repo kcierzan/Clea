@@ -15,6 +15,8 @@ sender.get_recipient_data
 sender.get_message
 sender.compose
 sender.send_message
+
 30.times { print "*" }
-puts "Message successfully sent!"
+puts "\n\n Message successfully sent! \n\n"
 30.times { print "*" }
+print "\n"
