@@ -5,18 +5,15 @@ require "ValidateEmail"
 
 module Clea
   class Sender
-    # Retrieve valid info from the persistent hash or from user input
+    # Set up persistent user info hash and return the user's email address if it already exists
     def check_sender_info
-      # Initialize or open persistent user info hash
       @sender_info = PStore.new("my-clea-info.pstore")
-
-      # If there is no persisting value for from_address, get values for alias, from_address, and password
       senders_from = @sender_info.transaction { @sender_info[:from_address] }
       return senders_from
     end
 
+    # Get user's alias and confirm
     def get_sender_alias
-      # Get user's alias and confirm
       puts "What is your name?"
       while @from_alias = gets.chomp
         catch :badalias do
@@ -34,8 +31,8 @@ module Clea
       end
     end
 
+    # Get, validate, and confirm user's email address
     def get_sender_gmail
-      # Get user's email address, validate, confirm
       puts "Enter your gmail address:"
       while @from_address = gets.chomp
         catch :badfrom do
@@ -57,8 +54,8 @@ module Clea
       end
     end
 
+    # Get and confirm user's password
     def get_sender_password
-      # Get user's password and confirm
       puts "Enter your password:"
       while @password = gets.chomp
         catch :badpass do
@@ -76,6 +73,7 @@ module Clea
       end
     end
 
+    # Write all user info to the persistent hash
     def write_sender_data
       @sender_info.transaction do
         @sender_info[:password] = @password
@@ -84,6 +82,7 @@ module Clea
       end
     end
 
+    # Get, validate, and confirm the recipient's email address. This data does not persist.
     def get_recipient_data
       puts "Enter the recipient's email address:"
       while @to_address = gets.chomp
@@ -104,9 +103,9 @@ module Clea
           end
         end
       end
-
     end
 
+    # Get message content
     def get_message
       puts "What is the subject of the email?"
       @subject_line = gets.chomp
@@ -115,14 +114,11 @@ module Clea
       @body = gets.chomp
     end
 
-
-    # Interpolate user info into message string
+    # Compose message as heredoc
     def compose
-      # Read from persistent sender_info hash and assign variables
+      # Read from persistent user info hash and assign instance variables
       @stored_from_alias = @sender_info.transaction { @sender_info[:from_alias] }
       @stored_from_address = @sender_info.transaction { @sender_info[:from_address] }
-
-      # Compose message
       @msg = <<-END_OF_MESSAGE
 From: #{@stored_from_alias} <#{@stored_from_address}>
 To: <#{@to_address}>
@@ -136,12 +132,9 @@ Subject: #{@subject_line}
     def send_message
       # Read the user's password from the persistent hash
       stored_password = @sender_info.transaction { @sender_info[:password] }
-      # Initialize the gmail SMTP connection
+      # Initialize the gmail SMTP connection and upgrade to SSL/TLS
       smtp = Net::SMTP.new('smtp.gmail.com', 587)
-      #Upgrade connection to SSL/TLS
       smtp.enable_starttls
-
-
       # Open SMTP connection, send message, close the connection
       smtp.start('gmail.com', @stored_from_address, stored_password, :login) do
         smtp.send_message(@msg, @_stored_from_address, @to_address)
