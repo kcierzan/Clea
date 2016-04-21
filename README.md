@@ -12,17 +12,20 @@ gem 'clea'
 
 And then execute:
 
-    $ bundle install
+    `bundle install`
 
 Or install it yourself as:
 
-    $ gem install clea
+    `gem install clea`
 
 ## Usage
 
 Ensure the clea executable is in your path and enter 'clea' in the console. Follow the prompts to send your email message. The first time you user clea, clea stores your gmail account information in a pstore file in the gem directory. To reset your information, delete "my-clea-info.pstore".
 
-**NOTE:** As of version 0.8, clea only supports sending from a gmail address.
+### Notes:
+* As of version 0.8, clea only supports sending from a gmail address.
+* You must [enable access for less secure apps](https://www.google.com/settings/security/lesssecureapps) in your google preferences.
+* Remember to run `rbenv rehash` to enable the executable if you are using rbenv to manage Ruby installations.
 
 ## Development
 
